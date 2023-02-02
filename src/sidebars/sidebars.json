@@ -1,0 +1,16 @@
+[
+  {
+    "entry": "Documentation",
+    "name": "Documentation",
+    "items":[
+      "01_Graphql-Node-Jobs",
+      "02_Whats_a_Job_Batch_Pipeline",
+      "03_Running_the_server",
+      "04_Creating_a_worker",
+      "05_The_GNJ_API",
+      "06_Plugin_the_server_to_your_express",
+      "07_Q&A",
+      "08_Contributing"
+    ]
+  }
+]
