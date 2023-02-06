@@ -4,6 +4,7 @@
     "name": "Documentation",
     "items":[
       "01_Graphql-Node-Jobs",
+      "015_GettingStarted",
       "02_Whats_a_Job_Batch_Pipeline",
       "03_Running_the_server",
       "04_Creating_a_worker",
