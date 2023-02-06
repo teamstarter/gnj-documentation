@@ -22,4 +22,13 @@ If you use the CRUD query/mutations you will only be able to modify the models w
 
 **acquireJob** is where the main logic is made. This mutation will mark the first available job as running and assign it to a workerId if given.
 
-You are free to make your own acquire method using the CRUD query/mutations but keep in mind that using API calls might result in transactional problems. If you want to make sure that your custom acquire mutation is perfectly sequential, [use custom mutations](https://vincent-desmares.gitbook.io/graphql-node-jobs/plugin-the-server-to-your-express#you-can-add-custom-mutations-to-the-gnj-server).
+You are free to make your own acquire method using the CRUD query/mutations but keep in mind that using API calls might result in transactional problems. If you want to make sure that your custom acquire mutation is perfectly sequential, [use custom mutations](06_Plugin_the_server_to_your_express#you-can-add-custom-mutations-to-the-gnj-server).
+
+#### recoverJob(typeList: [String!]!, workerId: String)
+
+**recoverJob** recover a job by putting it back in the queue with the processing information already acquired.
+
+
+#### retryJob(typeList: [String!]!, workerId: String)
+
+**retryJob** retry a job which failed.
