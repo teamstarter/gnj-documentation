@@ -154,3 +154,12 @@ return getApolloServer(
 [Previous: The GNJ API](05_The_GNJ_API.md)
 
 [Next: Q&A](07_Q%26A.md)
+
+---
+
+### Teamstarter's other libraries
+
+- [GraphQL-Sequelize-Generator](https://teamstarter.github.io/GSG-documentation/)
+  - A Graphql API generator based on Sequelize.
+- [GraphQL-Web-Hooks](https://teamstarter.github.io/GWH-documentation/)
+  - A webhook implementation for GraphQL

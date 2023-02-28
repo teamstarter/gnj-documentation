@@ -82,3 +82,12 @@ Be careful, if you have only one worker in charge of the batch's jobs, it will h
 [Previous: Getting started](index.md)
 
 [Next: Running the server](03_Running_the_server.md)
+
+---
+
+### Teamstarter's other libraries
+
+- [GraphQL-Sequelize-Generator](https://teamstarter.github.io/GSG-documentation/)
+  - A Graphql API generator based on Sequelize.
+- [GraphQL-Web-Hooks](https://teamstarter.github.io/GWH-documentation/)
+  - A webhook implementation for GraphQL

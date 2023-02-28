@@ -63,3 +63,12 @@ When the server is started, you can open the following url : http://localhost:80
 [Previous: What's a Job/Batch/Pipeline](02_Whats_a_Job_Batch_Pipeline.md)
 
 [Next: Creating a worker](04_Creating_a_worker.md)
+
+---
+
+### Teamstarter's other libraries
+
+- [GraphQL-Sequelize-Generator](https://teamstarter.github.io/GSG-documentation/)
+  - A Graphql API generator based on Sequelize.
+- [GraphQL-Web-Hooks](https://teamstarter.github.io/GWH-documentation/)
+  - A webhook implementation for GraphQL

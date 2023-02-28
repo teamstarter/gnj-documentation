@@ -94,3 +94,12 @@ node --inspect-brk ./node_modules/jest/bin/jest.js ./tests/job.spec.js
 ---
 
 [Previous: Q&A](07_Q%26A.md)
+
+---
+
+### Teamstarter's other libraries
+
+- [GraphQL-Sequelize-Generator](https://teamstarter.github.io/GSG-documentation/)
+  - A Graphql API generator based on Sequelize.
+- [GraphQL-Web-Hooks](https://teamstarter.github.io/GWH-documentation/)
+  - A webhook implementation for GraphQL
