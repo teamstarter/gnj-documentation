@@ -9,6 +9,19 @@ date: 2023-01-31
 showTitle: true
 ---
 
+## Table of contents
+
+1. Getting started
+2. [What's a Job/Batch/Pipeline](02_Whats_a_Job_Batch_Pipeline.md)
+3. [Running the server](03_Running_the_server.md)
+4. [Creating a worker](04_Creating_a_worker.md)
+5. [The GNJ API](05_The_GNJ_API.md)
+6. [Plugin the server to your express](06_Plugin_the_server_to_your_express.md)
+7. [Q&A](07_Q%26A.md)
+8. [Contributing](08_Contributing.md)
+
+---
+
 A job scheduler, a runner and an interface to manage jobs. In one lib.
 
 ---
@@ -75,3 +88,7 @@ yarn add graphql-node-jobs
 ```
 
 To use the api, there is [node-graphql-jobs-react](https://github.com/vincentdesmares/node-jobs-react) that provide convenient Components to list/trigger/delete and other useful actions. It uses Websockets by default to provide a near-realtime experience.
+
+---
+
+[Next: What's a Job/Batch/Pipeline](02_Whats_a_Job_Batch_Pipeline.md)

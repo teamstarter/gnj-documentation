@@ -6,43 +6,56 @@ hideAnchor: false
 showTitle: true
 ---
 
+## Table of contents
+
+1. [Getting started](index.md)
+2. [What's a Job/Batch/Pipeline](02_Whats_a_Job_Batch_Pipeline.md)
+3. [Running the server](03_Running_the_server.md)
+4. [Creating a worker](04_Creating_a_worker.md)
+5. [The GNJ API](05_The_GNJ_API.md)
+6. Plugin the server to your express
+7. [Q&A](07_Q%26A.md)
+8. [Contributing](08_Contributing.md)
+
+---
+
 ## getApolloServer
 
 Call the function **getApolloServer** to get an instance of GNJ GraphQL server.
 Here is a full example of a GNJ server plugged to an express app, including live subscription.
 
 ```javascript
-const { expressMiddleware } = require('@apollo/server/express4')
-const express = require('express')
-const http = require('http')
-const cors = require('cors')
-const json = require('body-parser')
-const { createContext, EXPECTED_OPTIONS_KEY } = require('dataloader-sequelize')
-const setupServer = require('./schema')
-const models = require('./models') //Assuming "models" is your import of the Sequelize models folder, initialized by Sequelize-Cli
-const { PubSub } = require('graphql-subscriptions')
-const { getApolloServer } = require('graphql-node-jobs')
-const { WebSocketServer } = require('ws')
+const { expressMiddleware } = require("@apollo/server/express4");
+const express = require("express");
+const http = require("http");
+const cors = require("cors");
+const json = require("body-parser");
+const { createContext, EXPECTED_OPTIONS_KEY } = require("dataloader-sequelize");
+const setupServer = require("./schema");
+const models = require("./models"); //Assuming "models" is your import of the Sequelize models folder, initialized by Sequelize-Cli
+const { PubSub } = require("graphql-subscriptions");
+const { getApolloServer } = require("graphql-node-jobs");
+const { WebSocketServer } = require("ws");
 
 const createServer = async (options = {}, globalPreCallback = () => null) => {
-  const app = express()
+  const app = express();
   options = {
     spdy: { plain: true },
     ...options,
-  }
-  const httpServer = http.createServer(options, app)
+  };
+  const httpServer = http.createServer(options, app);
 
   // assume that we have already an apollo server running in your project
-  const { server } = setupServer(globalPreCallback, httpServer)
-  await server.start()
+  const { server } = setupServer(globalPreCallback, httpServer);
+  await server.start();
   //server.applyMiddleware({ app, path: '/graphql' })
   app.use(
-    '/graphql',
+    "/graphql",
     cors(),
     json(),
     expressMiddleware(server, {
       context: async ({ req, connection }) => {
-        const contextDataloader = createContext(models.sequelize)
+        const contextDataloader = createContext(models.sequelize);
 
         // Connection is provided when a webSocket is connected.
         if (connection) {
@@ -50,55 +63,55 @@ const createServer = async (options = {}, globalPreCallback = () => null) => {
           return {
             ...connection.context,
             [EXPECTED_OPTIONS_KEY]: contextDataloader,
-          }
+          };
         }
       },
     })
-  )
+  );
 
-  const pubSubInstance = new PubSub()
+  const pubSubInstance = new PubSub();
   //here we instantiate a websocket server for GNJ
   const wsServer = new WebSocketServer({
     // This is the `httpServer` we created in a previous step.
     server: httpServer,
     // Pass a different path here if app.use
     // serves expressMiddleware at a different path
-    path: '/jobs/graphq',
-  })
+    path: "/jobs/graphq",
+  });
 
   // your sequelizeConfiguration
-  const config = require('./config/config.js')
+  const config = require("./config/config.js");
 
   // init GNJ server and starting it
   const jobsServer = await getApolloServer(config, {
     wsServer,
     pubSubInstance,
     playground: true,
-  })
+  });
 
   //start
-  await jobsServer.start()
+  await jobsServer.start();
 
   //serving the GNJ server in a specifique route using the expressMiddleware
-  app.use('/jobs/graphql', cors(), json(), expressMiddleware(jobsServer, {}))
+  app.use("/jobs/graphql", cors(), json(), expressMiddleware(jobsServer, {}));
 
-  await new Promise(resolve => {
+  await new Promise((resolve) => {
     httpServer.listen(process.env.PORT || 8080, () => {
-      resolve()
-    })
+      resolve();
+    });
 
     console.log(
       `🚀 Server ready at http://localhost:${process.env.PORT || 8080}/graphql`
-    )
-  })
-  return httpServer
-}
+    );
+  });
+  return httpServer;
+};
 
-const closeServer = async server => {
-  await Promise.all([new Promise(resolve => server.close(() => resolve()))])
-}
+const closeServer = async (server) => {
+  await Promise.all([new Promise((resolve) => server.close(() => resolve()))]);
+};
 
-createServer()
+createServer();
 ```
 
 ---
@@ -114,7 +127,7 @@ return getApolloServer(
   {
     customAcquire: {
       type: new GraphQLObjectType({
-        name: 'customAcquire',
+        name: "customAcquire",
         fields: {
           id: { type: GraphQLInt },
         },
@@ -126,12 +139,18 @@ return getApolloServer(
       },
       resolve: async (source, args, context) => {
         // GNJ models can be retreived with the dbConfig if needed
-        const models = getModels(dbConfig)
+        const models = getModels(dbConfig);
         // get a job from the db
-        const job = await models.job.findByPk(1)
-        return job
+        const job = await models.job.findByPk(1);
+        return job;
       },
     },
   }
-)
+);
 ```
+
+---
+
+[Previous: The GNJ API](05_The_GNJ_API.md)
+
+[Next: Q&A](07_Q%26A.md)

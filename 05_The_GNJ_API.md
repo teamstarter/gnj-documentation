@@ -6,6 +6,17 @@ hideAnchor: false
 showTitle: true
 ---
 
+## Table of contents
+
+1. [Getting started](index.md)
+2. [What's a Job/Batch/Pipeline](02_Whats_a_Job_Batch_Pipeline.md)
+3. [Running the server](03_Running_the_server.md)
+4. [Creating a worker](04_Creating_a_worker.md)
+5. The GNJ API
+6. [Plugin the server to your express](06_Plugin_the_server_to_your_express.md)
+7. [Q&A](07_Q%26A.md)
+8. [Contributing](08_Contributing.md)
+
 ---
 
 ### Everything is exposed as a GraphQL endpoint
@@ -28,7 +39,12 @@ You are free to make your own acquire method using the CRUD query/mutations but 
 
 **recoverJob** recover a job by putting it back in the queue with the processing information already acquired.
 
-
 #### retryJob(typeList: [String!]!, workerId: String)
 
 **retryJob** retry a job which failed.
+
+---
+
+[Previous: Creating a worker](04_Creating_a_worker.md)
+
+[Next : Plugin the server to your express](06_Plugin_the_server_to_your_express.md)

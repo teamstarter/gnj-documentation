@@ -7,6 +7,19 @@ hideAnchor: false
 showTitle: true
 ---
 
+## Table of contents
+
+1. [Getting started](index.md)
+2. What's a Job/Batch/Pipeline
+3. [Running the server](03_Running_the_server.md)
+4. [Creating a worker](04_Creating_a_worker.md)
+5. [The GNJ API](05_The_GNJ_API.md)
+6. [Plugin the server to your express](06_Plugin_the_server_to_your_express.md)
+7. [Q&A](07_Q%26A.md)
+8. [Contributing](08_Contributing.md)
+
+---
+
 A quick guide on the GNJ models.
 ![Alt text](/assets/models-schema.png)
 _A representation of the most complex use case in GNJ._
@@ -63,3 +76,9 @@ A batch is a series of job, inside a pipeline, that will not be run sequentially
 - Job will stop being dispatched inside a pipeline as soon as it is "failed"
 
 Be careful, if you have only one worker in charge of the batch's jobs, it will have no effect and they will still run sequentially.
+
+---
+
+[Previous: Getting started](index.md)
+
+[Next: Running the server](03_Running_the_server.md)

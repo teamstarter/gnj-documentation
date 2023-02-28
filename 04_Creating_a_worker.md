@@ -6,6 +6,19 @@ hideAnchor: false
 showTitle: true
 ---
 
+## Table of contents
+
+1. [Getting started](index.md)
+2. [What's a Job/Batch/Pipeline](02_Whats_a_Job_Batch_Pipeline.md)
+3. [Running the server](03_Running_the_server.md)
+4. Creating a worker
+5. [The GNJ API](05_The_GNJ_API.md)
+6. [Plugin the server to your express](06_Plugin_the_server_to_your_express.md)
+7. [Q&A](07_Q%26A.md)
+8. [Contributing](08_Contributing.md)
+
+---
+
 You can create your workers from scratch using the Graphql schema. Or you can use the few utilities functions available to quickly setup a worker.
 
 ---
@@ -62,13 +75,13 @@ looping: false
 
 ```typescript
 const job = await checkForJobs({
-  typeList: ['myJobType'],
+  typeList: ["myJobType"],
   client,
   processingFunction: async (job, { updateProcessingInfo }) => {
-    await updateProcessingInfo({ percent: 10 })
+    await updateProcessingInfo({ percent: 10 });
   },
   looping: false,
-})
+});
 ```
 
 ---
@@ -100,3 +113,9 @@ workerId: 'manualCallPreMigration'
 ```
 
 They all use the GraphQL api provided by the server. So even if it's really convenient to use those functions you can create your own.
+
+---
+
+[Previous: Running the server](03_Running_the_server.md)
+
+[Next: The GNJ API](05_The_GNJ_API.md)
