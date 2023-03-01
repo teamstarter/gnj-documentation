@@ -97,7 +97,7 @@ To use the api, there is [node-graphql-jobs-react](https://github.com/vincentdes
 
 ### Teamstarter's other libraries
 
-- [GraphQL-Sequelize-Generator](https://teamstarter.github.io/GSG-documentation/)
+- [GraphQL-Sequelize-Generator](https://teamstarter.github.io/gsg-documentation/)
   - A Graphql API generator based on Sequelize.
-- [GraphQL-Web-Hooks](https://teamstarter.github.io/GWH-documentation/)
+- [GraphQL-Web-Hooks](https://teamstarter.github.io/gwh-documentation/)
   - A webhook implementation for GraphQL
