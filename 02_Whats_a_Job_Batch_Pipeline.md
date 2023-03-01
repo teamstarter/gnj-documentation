@@ -15,7 +15,7 @@ showTitle: true
 4. [Creating a worker](04_Creating_a_worker.md)
 5. [The GNJ API](05_The_GNJ_API.md)
 6. [Plugin the server to your express](06_Plugin_the_server_to_your_express.md)
-7. [Q&A](07_Q%26A.md)
+7. [Q&A](07_QA.md)
 8. [Contributing](08_Contributing.md)
 
 ---
